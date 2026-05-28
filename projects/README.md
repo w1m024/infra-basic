@@ -7,13 +7,14 @@
 | 项目 | 目标 | 难度 | 对应阶段 |
 |---|---|---:|---|
 | P0 Torch Inference Basics | 掌握 tensor / dtype / device / memory / profiler | 1 | PyTorch |
-| P1 Naive Generation | 手写 autoregressive decoding | 2 | Transformers |
-| P2 KV Cache Generation | 对比无 KV cache 与有 KV cache 的生成 | 2 | Transformers |
-| P3 Toy LLM Server | 写一个很慢但可观测的 LLM server | 3 | Serving |
-| P4 vLLM Lab | 跑通 vLLM server、benchmark 和源码笔记 | 4 | vLLM |
-| P5 SGLang Lab | 跑通 SGLang server、structured output、prefix cache | 4 | SGLang |
-| P6 Paper Reproduction Notes | 每篇论文复现一个关键现象 | 4 | Papers |
-| P7 First OSS Contribution | 完成一个 issue reproduction / docs / test PR | 5 | Open source |
+| P1 Operator and Kernel Basics | 理解 operator、kernel、Triton、custom op、Paddle custom kernel | 2 | Operator / Kernel |
+| P2 Naive Generation | 手写 autoregressive decoding | 2 | Transformers |
+| P3 KV Cache Generation | 对比无 KV cache 与有 KV cache 的生成 | 2 | Transformers |
+| P4 Toy LLM Server | 写一个很慢但可观测的 LLM server | 3 | Serving |
+| P5 vLLM Lab | 跑通 vLLM server、benchmark 和源码笔记 | 4 | vLLM |
+| P6 SGLang Lab | 跑通 SGLang server、structured output、prefix cache | 4 | SGLang |
+| P7 Paper Reproduction Notes | 每篇论文复现一个关键现象 | 4 | Papers |
+| P8 First OSS Contribution | 完成一个 issue reproduction / docs / test PR | 5 | Open source |
 
 ## P0. Torch Inference Basics
 
@@ -51,7 +52,56 @@ reports/p0_torch_inference.md
 - 显存；
 - 观察结论。
 
-## P1. Naive Generation
+## P1. Operator and Kernel Basics
+
+### 目标
+
+理解 Python、operator、kernel、Triton、CUDA、custom op 之间的关系。这个项目不要求写高性能 CUDA，而是先建立“会用、会看、会 profile、会写简单 Triton kernel”的能力。
+
+### 需要实现
+
+```text
+operator_labs/tensor_layout.py
+operator_labs/profile_forward.py
+operator_labs/triton_vector_add.py
+operator_labs/triton_fused_add_relu.py
+operator_labs/triton_rmsnorm.py
+operator_labs/custom_op_notes.md
+operator_labs/paddle_custom_kernel_notes.md
+```
+
+### 必做实验
+
+1. 观察 `shape / stride / contiguous`；
+2. 对比 contiguous 与 non-contiguous tensor 的 op 行为；
+3. 使用 `torch.profiler` 找到一次 forward 的 top CUDA ops；
+4. 写一个 Triton vector add；
+5. 写一个 Triton fused add + relu；
+6. 尝试写 RMSNorm 或阅读 RMSNorm kernel；
+7. 阅读 PyTorch custom op / Paddle custom op 文档，写一页对比笔记。
+
+### 报告表格
+
+| experiment | input shape | dtype | contiguous | CPU time | CUDA time | observation |
+|---|---:|---|---|---:|---:|---|
+| tensor layout | | | | | | |
+| profiler forward | | | | | | |
+| triton vector add | | | | | | |
+| triton fused add relu | | | | | | |
+
+### 通过标准
+
+能解释：
+
+- Python 调用 tensor op 和 Python 自己逐元素循环的区别；
+- operator 和 kernel 的区别；
+- shape、stride、contiguous 为什么影响性能；
+- kernel fusion 为什么可能提升性能；
+- Triton 为什么看起来像 Python，但不是普通 Python；
+- PyTorch custom op 与 Paddle custom op / custom kernel 的相似点；
+- 为什么 vLLM / SGLang 需要 attention backend 和 KV cache metadata。
+
+## P2. Naive Generation
 
 ### 目标
 
@@ -81,7 +131,7 @@ experiments/sampling.py
 - 为什么每生成一个 token 都要再 forward；
 - sampling 参数如何影响输出。
 
-## P2. KV Cache Generation
+## P3. KV Cache Generation
 
 ### 目标
 
@@ -111,7 +161,7 @@ experiments/kv_cache_memory.py
 | 1024 | 128 | off | | | | |
 | 1024 | 128 | on | | | | |
 
-## P3. Toy LLM Server
+## P4. Toy LLM Server
 
 ### 目标
 
@@ -152,7 +202,7 @@ benchmarks/benchmark_toy_server.py
 - 为什么 request-level batching 不适合长短不一的生成；
 - 为什么 serving 系统需要 scheduler。
 
-## P4. vLLM Lab
+## P5. vLLM Lab
 
 ### 目标
 
@@ -167,6 +217,7 @@ vllm_labs/client_streaming.py
 vllm_labs/benchmark_serving.sh
 vllm_labs/benchmark_report.md
 vllm_labs/source_notes.md
+vllm_labs/attention_backend_notes.md
 ```
 
 ### 必做实验
@@ -177,7 +228,8 @@ vllm_labs/source_notes.md
 4. 不同 `max_model_len`；
 5. 不同 `gpu_memory_utilization`；
 6. 有无 prefix caching；
-7. short-short / short-long / long-short / long-long workload。
+7. short-short / short-long / long-short / long-long workload；
+8. 阅读 attention backend / KV cache metadata 相关代码路径并写笔记。
 
 ### 源码笔记必须覆盖
 
@@ -186,9 +238,11 @@ vllm_labs/source_notes.md
 - scheduler；
 - KV cache manager；
 - model runner；
-- attention backend。
+- attention backend；
+- block table / KV cache layout；
+- sampling / logits processing。
 
-## P5. SGLang Lab
+## P6. SGLang Lab
 
 ### 目标
 
@@ -204,6 +258,7 @@ sglang_labs/offline_engine.py
 sglang_labs/structured_output.py
 sglang_labs/radix_cache_benchmark.py
 sglang_labs/source_notes.md
+sglang_labs/kernel_runtime_notes.md
 ```
 
 ### 必做实验
@@ -213,7 +268,8 @@ sglang_labs/source_notes.md
 3. streaming；
 4. JSON schema / regex / grammar structured output；
 5. 共享 prefix 与不共享 prefix 的对比；
-6. 与 vLLM 在相同模型、相同 workload 下对比。
+6. 与 vLLM 在相同模型、相同 workload 下对比；
+7. 阅读 radix cache、memory pool、structured output decoding 与 kernel/runtime 连接处。
 
 ### 通过标准
 
@@ -221,9 +277,10 @@ sglang_labs/source_notes.md
 
 - RadixAttention 与 prefix cache 的关系；
 - structured output 为什么需要 decoder-level 约束；
-- SGLang 更适合哪些复杂 generation workflow。
+- SGLang 更适合哪些复杂 generation workflow；
+- radix cache / token pool / KV pool 如何影响底层 attention 和 decode。
 
-## P6. Paper Reproduction Notes
+## P7. Paper Reproduction Notes
 
 ### 目标
 
@@ -239,6 +296,8 @@ sglang_labs/source_notes.md
 | SGLang | 共享 prefix 对 TTFT 的影响 |
 | Sarathi-Serve | long prefill 对 decode 延迟的影响 |
 | Speculative Decoding | acceptance rate 与加速比 |
+| Kernel fusion | fused vs unfused op 的耗时差异 |
+| Quantization | fp16/int8/int4 显存、吞吐、质量的变化 |
 
 ### 笔记模板
 
@@ -252,7 +311,7 @@ Does it match the claim:
 Limitation:
 ```
 
-## P7. First OSS Contribution
+## P8. First OSS Contribution
 
 ### 目标
 
@@ -265,7 +324,9 @@ Limitation:
 - 复现一个 issue；
 - 写一个 regression test；
 - 复现一个 benchmark；
-- 提交一个小 bugfix。
+- 提交一个小 bugfix；
+- 补充 operator / kernel / attention backend 相关说明；
+- 补充一个 profiling 或 benchmark 示例。
 
 ### 验收标准
 
@@ -274,7 +335,8 @@ Limitation:
 1. 一个 merged PR；
 2. 一个被维护者确认有效的 issue reproduction；
 3. 一个被项目采用或讨论的 benchmark report；
-4. 一个能帮助定位 bug 的最小测试用例。
+4. 一个能帮助定位 bug 的最小测试用例；
+5. 一个能帮助解释 attention backend / kernel / profiling 行为的文档或 example。
 
 ## 实验记录规范
 
@@ -289,6 +351,7 @@ CUDA:
 Command:
 Workload:
 Metrics:
+Profiler result:
 Observation:
 Next step:
 ```
@@ -297,6 +360,7 @@ Next step:
 
 ```text
 experiments/
+operator_labs/
 toy_server/
 benchmarks/
 vllm_labs/
