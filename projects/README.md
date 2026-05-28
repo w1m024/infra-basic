@@ -1,26 +1,41 @@
 # Projects
 
-本目录定义 infra-basic 的实践项目。每个项目都应该产出代码、实验记录和简短结论。
+本目录定义 `infra-basic` 的实践项目。每个项目都应该产出代码、实验记录和简短结论。
+
+本项目集默认使用 **CUDA-first / NVIDIA 标准环境**：
+
+```text
+Linux
+→ NVIDIA GPU
+→ NVIDIA Driver
+→ CUDA Toolkit
+→ PyTorch CUDA
+→ Triton CUDA
+→ vLLM / SGLang CUDA path
+```
+
+非 CUDA 后端、AMD/ROCm、国产硬件、Paddle custom device 等只作为扩展方向，不作为本项目集主线。
 
 ## 项目总览
 
 | 项目 | 目标 | 难度 | 对应阶段 |
 |---|---|---:|---|
-| P0 Torch Inference Basics | 掌握 tensor / dtype / device / memory / profiler | 1 | PyTorch |
-| P1 Operator and Kernel Basics | 理解 operator、kernel、Triton、custom op、Paddle custom kernel | 2 | Operator / Kernel |
-| P2 Naive Generation | 手写 autoregressive decoding | 2 | Transformers |
-| P3 KV Cache Generation | 对比无 KV cache 与有 KV cache 的生成 | 2 | Transformers |
-| P4 Toy LLM Server | 写一个很慢但可观测的 LLM server | 3 | Serving |
-| P5 vLLM Lab | 跑通 vLLM server、benchmark 和源码笔记 | 4 | vLLM |
-| P6 SGLang Lab | 跑通 SGLang server、structured output、prefix cache | 4 | SGLang |
-| P7 Paper Reproduction Notes | 每篇论文复现一个关键现象 | 4 | Papers |
-| P8 First OSS Contribution | 完成一个 issue reproduction / docs / test PR | 5 | Open source |
+| P0 Torch CUDA Inference Basics | 掌握 tensor / dtype / device / memory / profiler | 1 | PyTorch CUDA |
+| P1 Operator and Kernel Basics | 理解 operator、kernel、Triton CUDA、PyTorch custom op | 2 | Operator / Kernel |
+| P2 CUDA GPU Programming Basics | 理解 thread/block/grid、memory hierarchy、kernel launch | 3 | CUDA |
+| P3 Naive Generation | 手写 autoregressive decoding | 2 | Transformers |
+| P4 KV Cache Generation | 对比无 KV cache 与有 KV cache 的生成 | 2 | Transformers |
+| P5 Toy LLM Server | 写一个很慢但可观测的 LLM server | 3 | Serving |
+| P6 vLLM Lab | 跑通 vLLM server、benchmark 和源码笔记 | 4 | vLLM |
+| P7 SGLang Lab | 跑通 SGLang server、structured output、prefix cache | 4 | SGLang |
+| P8 Paper Reproduction Notes | 每篇论文复现一个关键现象 | 4 | Papers |
+| P9 First OSS Contribution | 完成一个 issue reproduction / docs / test PR | 5 | Open source |
 
-## P0. Torch Inference Basics
+## P0. Torch CUDA Inference Basics
 
 ### 目标
 
-理解推理阶段最常见的底层问题：dtype、device、batch、显存和 profiling。
+理解推理阶段最常见的底层问题：dtype、device、batch、显存、CUDA async execution 和 profiling。
 
 ### 需要实现
 
@@ -28,35 +43,42 @@
 experiments/torch_memory.py
 experiments/matmul_benchmark.py
 experiments/profiler_demo.py
+cuda_labs/00_check_cuda.py
 ```
 
 ### 必做实验
 
-1. 比较 fp32 / fp16 / bf16 tensor 显存；
-2. 比较 CPU / GPU matmul 耗时；
-3. 比较 batch size 变化对耗时和显存的影响；
-4. 使用 `torch.profiler` 观察一次模型 forward。
+1. 检查 `nvidia-smi` 和 `torch.cuda.is_available()`；
+2. 比较 fp32 / fp16 / bf16 tensor 显存；
+3. 比较 CPU / GPU matmul 耗时；
+4. 比较 batch size 变化对耗时和显存的影响；
+5. 使用 `torch.profiler` 观察一次模型 forward；
+6. 使用 `torch.cuda.synchronize()` 对比同步前后的计时差异。
 
 ### 交付物
 
 ```text
-reports/p0_torch_inference.md
+reports/p0_torch_cuda_inference.md
 ```
 
 报告至少包含：
 
 - 实验环境；
+- GPU 型号；
+- CUDA / driver；
+- PyTorch 版本；
 - 输入 shape；
 - dtype；
 - 耗时；
 - 显存；
+- profiler top CUDA ops；
 - 观察结论。
 
 ## P1. Operator and Kernel Basics
 
 ### 目标
 
-理解 Python、operator、kernel、Triton、CUDA、custom op 之间的关系。这个项目不要求写高性能 CUDA，而是先建立“会用、会看、会 profile、会写简单 Triton kernel”的能力。
+理解 Python、operator、kernel、Triton CUDA、PyTorch custom op 之间的关系。这个项目不要求写高性能 CUDA，而是先建立“会用、会看、会 profile、会写简单 Triton CUDA kernel”的能力。
 
 ### 需要实现
 
@@ -67,7 +89,6 @@ operator_labs/triton_vector_add.py
 operator_labs/triton_fused_add_relu.py
 operator_labs/triton_rmsnorm.py
 operator_labs/custom_op_notes.md
-operator_labs/paddle_custom_kernel_notes.md
 ```
 
 ### 必做实验
@@ -75,10 +96,10 @@ operator_labs/paddle_custom_kernel_notes.md
 1. 观察 `shape / stride / contiguous`；
 2. 对比 contiguous 与 non-contiguous tensor 的 op 行为；
 3. 使用 `torch.profiler` 找到一次 forward 的 top CUDA ops；
-4. 写一个 Triton vector add；
-5. 写一个 Triton fused add + relu；
+4. 写一个 Triton CUDA vector add；
+5. 写一个 Triton CUDA fused add + relu；
 6. 尝试写 RMSNorm 或阅读 RMSNorm kernel；
-7. 阅读 PyTorch custom op / Paddle custom op 文档，写一页对比笔记。
+7. 阅读 PyTorch custom op 文档，写一页笔记。
 
 ### 报告表格
 
@@ -98,10 +119,50 @@ operator_labs/paddle_custom_kernel_notes.md
 - shape、stride、contiguous 为什么影响性能；
 - kernel fusion 为什么可能提升性能；
 - Triton 为什么看起来像 Python，但不是普通 Python；
-- PyTorch custom op 与 Paddle custom op / custom kernel 的相似点；
+- PyTorch custom op 解决什么问题；
 - 为什么 vLLM / SGLang 需要 attention backend 和 KV cache metadata。
 
-## P2. Naive Generation
+## P2. CUDA GPU Programming Basics
+
+### 目标
+
+认真理解 CUDA/GPU 编程模型，但不一开始写复杂 CUDA kernel。
+
+### 需要实现
+
+```text
+cuda_labs/00_check_cuda.py
+cuda_labs/01_vector_add.cu
+cuda_labs/02_reduction.cu
+cuda_labs/03_simple_softmax.cu
+cuda_labs/04_cuda_streams.py
+cuda_labs/05_torch_profiler_cuda.py
+reports/p2_cuda_gpu_programming.md
+```
+
+### 必做实验
+
+1. CUDA 环境检查；
+2. CUDA vector add；
+3. reduction 最小实验；
+4. simple softmax 或阅读 softmax kernel；
+5. CUDA stream / async execution 观察；
+6. 使用 profiler 看 CUDA ops；
+7. 写一页笔记解释 thread / block / grid / warp / SM / memory hierarchy。
+
+### 通过标准
+
+能解释：
+
+- kernel launch 是什么；
+- thread、block、grid 的关系；
+- warp 和 SM 是什么；
+- global memory、shared memory、register 的区别；
+- memory coalescing 为什么重要；
+- 为什么 GPU benchmark 需要同步；
+- 为什么 CUDA C++ 不应该一开始就直接写 FlashAttention。
+
+## P3. Naive Generation
 
 ### 目标
 
@@ -131,7 +192,7 @@ experiments/sampling.py
 - 为什么每生成一个 token 都要再 forward；
 - sampling 参数如何影响输出。
 
-## P3. KV Cache Generation
+## P4. KV Cache Generation
 
 ### 目标
 
@@ -161,7 +222,7 @@ experiments/kv_cache_memory.py
 | 1024 | 128 | off | | | | |
 | 1024 | 128 | on | | | | |
 
-## P4. Toy LLM Server
+## P5. Toy LLM Server
 
 ### 目标
 
@@ -202,11 +263,11 @@ benchmarks/benchmark_toy_server.py
 - 为什么 request-level batching 不适合长短不一的生成；
 - 为什么 serving 系统需要 scheduler。
 
-## P5. vLLM Lab
+## P6. vLLM Lab
 
 ### 目标
 
-掌握 vLLM 的基础使用、benchmark 方法和源码主路径。
+掌握 vLLM 的基础使用、benchmark 方法和源码主路径，重点理解 CUDA path 下的 attention backend、KV cache metadata 和 profiler 结果。
 
 ### 需要实现
 
@@ -240,13 +301,14 @@ vllm_labs/attention_backend_notes.md
 - model runner；
 - attention backend；
 - block table / KV cache layout；
+- CUDA graph；
 - sampling / logits processing。
 
-## P6. SGLang Lab
+## P7. SGLang Lab
 
 ### 目标
 
-掌握 SGLang 的 server、offline engine、structured output 和 prefix reuse。
+掌握 SGLang 的 server、offline engine、structured output 和 prefix reuse，重点理解 runtime、radix cache、memory pool 与 CUDA/Triton kernel 的边界。
 
 ### 需要实现
 
@@ -280,7 +342,7 @@ sglang_labs/kernel_runtime_notes.md
 - SGLang 更适合哪些复杂 generation workflow；
 - radix cache / token pool / KV pool 如何影响底层 attention 和 decode。
 
-## P7. Paper Reproduction Notes
+## P8. Paper Reproduction Notes
 
 ### 目标
 
@@ -311,7 +373,7 @@ Does it match the claim:
 Limitation:
 ```
 
-## P8. First OSS Contribution
+## P9. First OSS Contribution
 
 ### 目标
 
@@ -325,7 +387,7 @@ Limitation:
 - 写一个 regression test；
 - 复现一个 benchmark；
 - 提交一个小 bugfix；
-- 补充 operator / kernel / attention backend 相关说明；
+- 补充 CUDA / operator / kernel / attention backend 相关说明；
 - 补充一个 profiling 或 benchmark 示例。
 
 ### 验收标准
@@ -336,7 +398,7 @@ Limitation:
 2. 一个被维护者确认有效的 issue reproduction；
 3. 一个被项目采用或讨论的 benchmark report；
 4. 一个能帮助定位 bug 的最小测试用例；
-5. 一个能帮助解释 attention backend / kernel / profiling 行为的文档或 example。
+5. 一个能帮助解释 attention backend / CUDA kernel / profiling 行为的文档或 example。
 
 ## 实验记录规范
 
@@ -348,6 +410,7 @@ Commit:
 Model:
 GPU:
 CUDA:
+Driver:
 Command:
 Workload:
 Metrics:
@@ -361,6 +424,7 @@ Next step:
 ```text
 experiments/
 operator_labs/
+cuda_labs/
 toy_server/
 benchmarks/
 vllm_labs/
