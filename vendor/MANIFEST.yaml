@@ -1,0 +1,239 @@
+projects:
+  - name: vLLM
+    path: vendor/vllm-project/vllm
+    upstream: https://github.com/vllm-project/vllm
+    category: serving-engine
+    priority: P0
+    article: docs/source-reading/serving/vllm.md
+    why: OpenAI-compatible serving, scheduler, KV cache, worker and attention backend mainline.
+  - name: SGLang
+    path: vendor/sgl-project/sglang
+    upstream: https://github.com/sgl-project/sglang
+    category: serving-engine
+    priority: P0
+    article: docs/source-reading/serving/sglang.md
+    why: Runtime, RadixAttention/prefix cache and structured generation serving comparison.
+  - name: Text Generation Inference
+    path: vendor/huggingface/text-generation-inference
+    upstream: https://github.com/huggingface/text-generation-inference
+    category: serving-engine
+    priority: P1
+    article: docs/source-reading/serving/tgi.md
+    why: Production Rust/Python serving stack comparison.
+  - name: LMDeploy
+    path: vendor/InternLM/lmdeploy
+    upstream: https://github.com/InternLM/lmdeploy
+    category: serving-engine
+    priority: P1
+    article: docs/source-reading/serving/lmdeploy.md
+    why: TurboMind and PyTorch engine comparison.
+  - name: llama.cpp
+    path: vendor/ggml-org/llama.cpp
+    upstream: https://github.com/ggml-org/llama.cpp
+    category: serving-engine
+    priority: P1
+    article: docs/source-reading/serving/llama-cpp-ggml.md
+    why: CPU/local inference and ggml runtime boundary.
+  - name: ggml
+    path: vendor/ggml-org/ggml
+    upstream: https://github.com/ggml-org/ggml
+    category: kernel-library
+    priority: P1
+    article: docs/source-reading/serving/llama-cpp-ggml.md
+    why: Tensor library backing llama.cpp.
+  - name: Dynamo
+    path: vendor/ai-dynamo/dynamo
+    upstream: https://github.com/ai-dynamo/dynamo
+    category: distributed-serving
+    priority: P1
+    article: docs/source-reading/distributed/dynamo.md
+    why: Distributed serving orchestration comparison.
+  - name: TensorRT-LLM Backend
+    path: vendor/triton-inference-server/tensorrtllm_backend
+    upstream: https://github.com/triton-inference-server/tensorrtllm_backend
+    category: distributed-serving
+    priority: P1
+    article: docs/source-reading/distributed/triton-server.md
+    why: Triton backend integration point for TensorRT-LLM.
+  - name: Triton Inference Server
+    path: vendor/triton-inference-server/server
+    upstream: https://github.com/triton-inference-server/server
+    category: distributed-serving
+    priority: P1
+    article: docs/source-reading/distributed/triton-server.md
+    why: Production model serving runtime comparison.
+  - name: FlashInfer
+    path: vendor/flashinfer-ai/flashinfer
+    upstream: https://github.com/flashinfer-ai/flashinfer
+    category: kernel-library
+    priority: P0
+    article: docs/source-reading/kernels/flashinfer.md
+    why: Serving-oriented attention, sampling and communication kernels.
+  - name: FlashAttention
+    path: vendor/Dao-AILab/flash-attention
+    upstream: https://github.com/Dao-AILab/flash-attention
+    category: kernel-library
+    priority: P0
+    article: docs/source-reading/kernels/flash-attention.md
+    why: Attention IO-aware kernel baseline.
+  - name: CUTLASS
+    path: vendor/NVIDIA/cutlass
+    upstream: https://github.com/NVIDIA/cutlass
+    category: kernel-library
+    priority: P0
+    article: docs/source-reading/kernels/cutlass.md
+    why: CUDA template primitives for GEMM and tensor core kernels.
+  - name: TensorRT-LLM
+    path: vendor/NVIDIA/TensorRT-LLM
+    upstream: https://github.com/NVIDIA/TensorRT-LLM
+    category: serving-engine
+    priority: P0
+    article: docs/source-reading/serving/tensorrt-llm.md
+    why: NVIDIA optimized LLM inference runtime and engine stack.
+  - name: Triton
+    path: vendor/triton-lang/triton
+    upstream: https://github.com/triton-lang/triton
+    category: kernel-library
+    priority: P0
+    article: docs/source-reading/kernels/triton.md
+    why: Python JIT kernel language and compiler/runtime stack.
+  - name: FlashMLA
+    path: vendor/deepseek-ai/FlashMLA
+    upstream: https://github.com/deepseek-ai/FlashMLA
+    category: kernel-library
+    priority: P0
+    article: docs/source-reading/kernels/flashmla.md
+    why: MLA attention kernel for DeepSeek-style models.
+  - name: DeepGEMM
+    path: vendor/deepseek-ai/DeepGEMM
+    upstream: https://github.com/deepseek-ai/DeepGEMM
+    category: kernel-library
+    priority: P0
+    article: docs/source-reading/kernels/deepgemm.md
+    why: FP8 GEMM and grouped GEMM kernels.
+  - name: DeepEP
+    path: vendor/deepseek-ai/DeepEP
+    upstream: https://github.com/deepseek-ai/DeepEP
+    category: distributed-serving
+    priority: P0
+    article: docs/source-reading/distributed/deepep.md
+    why: Expert parallel dispatch/combine communication layer.
+  - name: 3FS
+    path: vendor/deepseek-ai/3FS
+    upstream: https://github.com/deepseek-ai/3FS
+    category: distributed-serving
+    priority: P1
+    article: docs/source-reading/distributed/3fs.md
+    why: AI workload file system and storage layer comparison.
+  - name: LMCache
+    path: vendor/LMCache/LMCache
+    upstream: https://github.com/LMCache/LMCache
+    category: cache-system
+    priority: P1
+    article: docs/source-reading/distributed/lmcache.md
+    why: KV cache reuse/offload layer.
+  - name: Outlines
+    path: vendor/dottxt-ai/outlines
+    upstream: https://github.com/dottxt-ai/outlines
+    category: structured-output
+    priority: P1
+    article: docs/source-reading/structured-output/outlines.md
+    why: Constrained decoding and schema guided generation.
+  - name: Guidance
+    path: vendor/guidance-ai/guidance
+    upstream: https://github.com/guidance-ai/guidance
+    category: structured-output
+    priority: P1
+    article: docs/source-reading/structured-output/guidance.md
+    why: Grammar and control-flow guided generation comparison.
+  - name: PaddleNLP
+    path: vendor/PaddlePaddle/PaddleNLP
+    upstream: https://github.com/PaddlePaddle/PaddleNLP
+    category: serving-engine
+    priority: P2
+    article: docs/source-reading/serving/paddlenlp.md
+    why: Non-mainline framework comparison.
+  - name: Codex
+    path: vendor/openai/codex
+    upstream: https://github.com/openai/codex
+    category: agent-runtime
+    priority: P0
+    article: docs/source-reading/agents/codex.md
+    why: Terminal coding agent runtime, tools, sandbox and patch workflow.
+  - name: Claude Code
+    path: vendor/anthropics/claude-code
+    upstream: https://github.com/anthropics/claude-code
+    category: agent-runtime
+    priority: P1
+    article: docs/source-reading/agents/claude-code.md
+    why: Agent CLI comparison with visible source scope noted.
+  - name: Gemini CLI
+    path: vendor/google-gemini/gemini-cli
+    upstream: https://github.com/google-gemini/gemini-cli
+    category: agent-runtime
+    priority: P0
+    article: docs/source-reading/agents/gemini-cli.md
+    why: CLI agent loop, tools, memory/config and MCP comparison.
+  - name: Aider
+    path: vendor/aider-ai/aider
+    upstream: https://github.com/aider-ai/aider
+    category: agent-runtime
+    priority: P0
+    article: docs/source-reading/agents/aider.md
+    why: Repo map, git-aware edit loop and test loop.
+  - name: OpenHands
+    path: vendor/OpenHands/openhands
+    upstream: https://github.com/OpenHands/openhands
+    category: agent-runtime
+    priority: P0
+    article: docs/source-reading/agents/openhands.md
+    why: Sandbox/runtime/controller architecture for coding agents.
+  - name: Cline
+    path: vendor/cline/cline
+    upstream: https://github.com/cline/cline
+    category: ide-agent
+    priority: P1
+    article: docs/source-reading/agents/cline-roo.md
+    why: IDE extension agent flow comparison.
+  - name: Roo Code
+    path: vendor/RooCodeInc/Roo-Code
+    upstream: https://github.com/RooCodeInc/Roo-Code
+    category: ide-agent
+    priority: P1
+    article: docs/source-reading/agents/cline-roo.md
+    why: Mode system and tool approval comparison with Cline.
+  - name: Roo Code Docs
+    path: vendor/RooCodeInc/Roo-Code-Docs
+    upstream: https://github.com/RooCodeInc/Roo-Code-Docs
+    category: extension-reference
+    priority: P2
+    article: docs/source-reading/agents/cline-roo.md
+    why: Documentation reference, not primary source.
+  - name: OpenCode
+    path: vendor/anomalyco/opencode
+    upstream: https://github.com/anomalyco/opencode
+    category: agent-runtime
+    priority: P1
+    article: docs/source-reading/agents/opencode-continue.md
+    why: Terminal open agent session/tool/context comparison.
+  - name: Continue
+    path: vendor/continuedev/continue
+    upstream: https://github.com/continuedev/continue
+    category: ide-agent
+    priority: P1
+    article: docs/source-reading/agents/opencode-continue.md
+    why: IDE context providers and edit workflow comparison.
+  - name: SWE-agent
+    path: vendor/SWE-agent/SWE-agent
+    upstream: https://github.com/SWE-agent/SWE-agent
+    category: research-agent
+    priority: P0
+    article: docs/source-reading/agents/swe-agent.md
+    why: Issue-to-patch loop, environment and trajectory design.
+  - name: mini-swe-agent
+    path: vendor/SWE-agent/mini-swe-agent
+    upstream: https://github.com/SWE-agent/mini-swe-agent
+    category: research-agent
+    priority: P0
+    article: docs/source-reading/agents/swe-agent.md
+    why: Minimal implementation used to compare the core loop.

@@ -1,0 +1,25 @@
+.VPNav {
+  border-bottom: 1px solid var(--infra-border);
+  background: color-mix(in srgb, var(--infra-bg) 92%, transparent);
+}
+
+.VPDoc .container {
+  max-width: 1180px;
+}
+
+.VPDoc .content {
+  max-width: 820px;
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 820px;
+}
+
+.VPSidebar {
+  background: var(--infra-surface-soft);
+  border-right: 1px solid var(--infra-border);
+}
+
+.VPFooter {
+  border-top: 1px solid var(--infra-border);
+}

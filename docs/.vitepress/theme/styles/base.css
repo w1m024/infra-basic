@@ -1,0 +1,19 @@
+html {
+  background: var(--infra-bg);
+}
+
+body {
+  color: var(--infra-text);
+  background: var(--infra-bg);
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--infra-brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}

@@ -1,0 +1,27 @@
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.8;
+}
+
+.vp-doc table {
+  display: table;
+  width: 100%;
+}
+
+.vp-doc th,
+.vp-doc td {
+  border-color: var(--infra-border);
+}
+
+.vp-doc tr:nth-child(2n) {
+  background-color: var(--infra-surface-soft);
+}
+
+.vp-doc code {
+  border-radius: 5px;
+}
+
+.vp-doc blockquote {
+  color: var(--infra-text-muted);
+  border-left-color: var(--infra-brand);
+}
