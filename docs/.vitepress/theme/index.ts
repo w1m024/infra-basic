@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import HomePage from './components/HomePage.vue'
+import HomePageEn from './components/HomePageEn.vue'
 import MetricBadge from './components/MetricBadge.vue'
 import SourceProjectCard from './components/SourceProjectCard.vue'
 import TrackCard from './components/TrackCard.vue'
@@ -14,6 +15,7 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('HomePage', HomePage)
+    app.component('HomePageEn', HomePageEn)
     app.component('TrackCard', TrackCard)
     app.component('SourceProjectCard', SourceProjectCard)
     app.component('MetricBadge', MetricBadge)

@@ -76,8 +76,8 @@ for (const entry of entries.filter((item) => item.priority === 'P0')) {
 
   const requiredMarkers = [
     '```text',
-    '## 6. Same-layer comparison',
-    '## 7. Minimal experiment',
+    '## 6. 同层对比',
+    '## 7. 最小实验',
     `git submodule update --init --depth 1 ${entry.path}`
   ]
 

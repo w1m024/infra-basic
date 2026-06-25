@@ -8,7 +8,7 @@ const href = (path: string) => withBase(path)
 <template>
   <main class="infra-home">
     <section class="home-hero" aria-labelledby="home-title">
-      <p class="home-kicker">LLM inference infrastructure learning system</p>
+      <p class="home-kicker">LLM 推理基础设施学习体系</p>
       <h1 id="home-title">
         <span class="hero-line">从 CUDA 到 LLM Serving</span>
         <span class="hero-line">一条可验证的</span>
@@ -31,7 +31,7 @@ const href = (path: string) => withBase(path)
 
     <section class="home-section" aria-labelledby="start-path-title">
       <div class="home-section-heading">
-        <p>Start Path</p>
+        <p>学习路径</p>
         <h2 id="start-path-title">从零开始的五步主线</h2>
       </div>
       <div class="start-grid">
@@ -49,7 +49,7 @@ const href = (path: string) => withBase(path)
 
     <section class="home-section" aria-labelledby="source-tracks-title">
       <div class="home-section-heading">
-        <p>Source Reading Tracks</p>
+        <p>源码阅读轨道</p>
         <h2 id="source-tracks-title">按系统层次读源码</h2>
       </div>
       <div class="source-grid">
@@ -66,7 +66,7 @@ const href = (path: string) => withBase(path)
 
     <section class="home-section validation-section" aria-labelledby="validation-title">
       <div class="home-section-heading">
-        <p>Validation</p>
+        <p>验收标准</p>
         <h2 id="validation-title">用产出证明学会了</h2>
       </div>
       <div class="validation-grid">

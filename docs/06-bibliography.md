@@ -1,4 +1,4 @@
-# 06. Bibliography and Resource Index
+# 参考文献与资源索引
 
 本文档是 `docs/01-paper-syllabus.md` 的资源索引版。`01-paper-syllabus` 说明“为什么读、怎么读”，本文档列出“具体读哪些”。
 

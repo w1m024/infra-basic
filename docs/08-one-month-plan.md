@@ -1,4 +1,4 @@
-# 08. One Month Plan
+# 一月计划
 
 本文档给出 `infra-basic` 的一月学习计划。目标是在 4 周内完成 **LLM 推理基础设施的入门闭环**：能跑通小模型推理，理解 operator / kernel / CUDA/GPU 编程模型，完成 KV cache 实验，搭建 toy serving，跑通 vLLM 与 SGLang 的最小实验，并准备第一个开源贡献入口。
 

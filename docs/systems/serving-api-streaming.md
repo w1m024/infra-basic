@@ -1,4 +1,4 @@
-# Serving API & Streaming
+# Serving API 与 Streaming
 
 Serving API 把推理系统暴露给客户端。学习时不要只看 endpoint 名字，要理解 request lifecycle、streaming、backpressure 和错误处理。
 

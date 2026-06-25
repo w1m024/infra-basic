@@ -1,4 +1,4 @@
-# Benchmark & Profiling
+# Benchmark 与 Profiling
 
 Benchmark 的目标不是得到一个好看的 tokens/s，而是解释系统瓶颈。必须固定 workload、模型、硬件、版本和启动参数。
 

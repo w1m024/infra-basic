@@ -1,4 +1,4 @@
-# 07. Operator and Kernel Learning Guide
+# Operator 与 Kernel 入门指南
 
 本文档解释 LLM 推理基础设施中经常出现的“算子”“kernel”“写算子语言”等概念，并说明它们和 Python、PyTorch、vLLM、SGLang 的关系。
 

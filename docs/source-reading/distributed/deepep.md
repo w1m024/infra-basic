@@ -1,14 +1,14 @@
-# DeepEP source reading
+# DeepEP 源码阅读
 
-## 1. Question this project answers
+## 1. 本项目要回答的问题
 
 - Layer: distributed-serving.
 - Route connection: Expert parallel dispatch/combine communication layer.
 - Reading goal: identify the entrypoint, core state, execution loop, resource boundary, and observable metrics.
 
-## 2. Version and source scope
+## 2. 版本与源码范围
 
-| Field | Value |
+| 字段 | 值 |
 |---|---|
 | upstream | https://github.com/deepseek-ai/DeepEP |
 | local path | `vendor/deepseek-ai/DeepEP` |
@@ -16,7 +16,7 @@
 | checkout date | 2026-06-13 |
 | article owner | OpenCQUT infra-basic |
 
-## 3. Main flow diagram
+## 3. 主流程图
 
 ```text
 serving engine
@@ -26,7 +26,7 @@ serving engine
 -> metrics and release
 ```
 
-## 4. Source map
+## 4. 源码地图
 
 | Source path | Module | Why read it | Key question |
 |---|---|---|---|
@@ -41,7 +41,7 @@ serving engine
 | `vendor/deepseek-ai/DeepEP/deep_ep/include/deep_ep/common/layout.cuh` | resource/test | File exists in current checkout | Track call boundary, state mutation, and error handling |
 | `vendor/deepseek-ai/DeepEP/deep_ep/include/deep_ep/common/math.cuh` | resource/test | File exists in current checkout | Track call boundary, state mutation, and error handling |
 
-## 5. Main path notes
+## 5. 主路径笔记
 
 ### 5.1 Entrypoint
 
@@ -59,11 +59,11 @@ Trace one input through the loop. Serving projects use schedule/execute/stream. 
 
 Check streaming, metrics, trace, cache release, error propagation, or trajectory records. This is the part that makes the system debuggable and benchmarkable.
 
-## 6. Same-layer comparison
+## 6. 同层对比
 
 Same-layer comparison: vLLM is the best first scheduler/KV-cache reading target, SGLang highlights prefix cache and structured generation, and TensorRT-LLM highlights NVIDIA runtime/backend optimization.
 
-## 7. Minimal experiment
+## 7. 最小实验
 
 ```bash
 git submodule update --init --depth 1 vendor/deepseek-ai/DeepEP
@@ -72,20 +72,20 @@ git -C vendor/deepseek-ai/DeepEP rev-parse --short HEAD
 
 Then choose the first three files in the source map and draw the arrows between entrypoint, state object, and main loop. GPU or service projects must also record hardware, driver, CUDA, model, and launch arguments.
 
-## 8. Common mistakes
+## 8. 常见错误
 
 - Reading only README files instead of real entrypoint files.
 - Recording benchmark numbers without commit, hardware, and launch arguments.
 - Skipping error handling, resource release, and metrics paths.
 - Citing source paths before checking that they exist in the current checkout.
 
-## 9. Review questions
+## 9. 回顾问题
 
 - Where does one request, tool call, or kernel launch enter this project?
 - Who creates, mutates, and releases the core state object?
 - What design boundary is most useful compared with same-layer projects?
 
-## 10. References
+## 10. 参考资料
 
 - Upstream repository: https://github.com/deepseek-ai/DeepEP
 - [Source reading map](/source-reading/)

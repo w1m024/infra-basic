@@ -1,21 +1,21 @@
-# Project source reading template
+# 项目源码阅读模板
 
-## 1. Question this project answers
+## 1. 本项目要回答的问题
 
-## 2. Version and source scope
+## 2. 版本与源码范围
 
-## 3. Main flow diagram
+## 3. 主流程图
 
-## 4. Source map
+## 4. 源码地图
 
-## 5. Main path notes
+## 5. 主路径笔记
 
-## 6. Same-layer comparison
+## 6. 同层对比
 
-## 7. Minimal experiment
+## 7. 最小实验
 
-## 8. Common mistakes
+## 8. 常见错误
 
-## 9. Review questions
+## 9. 回顾问题
 
-## 10. References
+## 10. 参考资料

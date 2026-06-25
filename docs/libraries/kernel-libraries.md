@@ -1,4 +1,4 @@
-# Kernel Libraries
+# Kernel 库
 
 底层 kernel library 是理解 LLM 推理性能的关键。不要一开始就写复杂 kernel，但应该知道每个库解决的问题，以及它们如何被 vLLM、SGLang、TensorRT-LLM、DeepSeek stack 等上层系统调用。
 

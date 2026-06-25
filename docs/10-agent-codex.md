@@ -1,4 +1,4 @@
-# 10. Agent / Codex Internals
+# Agent / Codex 内部机制
 
 本栏目关注 Agent 与 OpenAI Codex CLI 的原理和源码，而不是使用教程。目标是理解 coding agent 如何组织上下文、调用工具、执行命令、应用补丁、处理 sandbox / approval，以及如何把 LLM 推理能力封装成一个可工作的工程代理。
 

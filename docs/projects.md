@@ -1,4 +1,4 @@
-# Projects
+# 项目
 
 实践项目用于把 `infra-basic` 的概念落到代码、实验记录和结论中。完整项目说明仍维护在仓库根目录的 `projects/README.md`，本页作为文档站入口。
 

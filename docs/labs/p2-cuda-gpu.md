@@ -1,4 +1,4 @@
-# 09. CUDA-first GPU Programming Guide
+# CUDA GPU 编程入门指南
 
 本文档把 `infra-basic` 的底层编程路线明确为 **CUDA-first / NVIDIA 标准环境**。也就是说，后续学习、实验、benchmark 和源码阅读默认使用：
 

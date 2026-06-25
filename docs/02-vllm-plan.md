@@ -1,4 +1,4 @@
-# 02. vLLM Study Plan
+# vLLM 学习计划
 
 本文档给出 vLLM 专项学习计划。目标是从“会启动 vLLM”逐步进入“能定位代码、复现问题、做 benchmark、提交小 PR”。
 

@@ -19,11 +19,11 @@ export const sidebar: DefaultTheme.Sidebar = [
       { text: '推理系统总览', link: '/systems/overview' },
       { text: 'Prefill / Decode', link: '/systems/prefill-decode' },
       { text: 'KV Cache', link: '/systems/kv-cache' },
-      { text: 'Scheduler & Batching', link: '/systems/scheduler-batching' },
-      { text: 'Serving API & Streaming', link: '/systems/serving-api-streaming' },
-      { text: 'Benchmark & Profiling', link: '/systems/benchmark-profiling' },
-      { text: 'Distributed Inference', link: '/systems/distributed-inference' },
-      { text: 'Production Serving', link: '/systems/production-serving' }
+      { text: '调度与批处理', link: '/systems/scheduler-batching' },
+      { text: 'Serving API 与 Streaming', link: '/systems/serving-api-streaming' },
+      { text: 'Benchmark 与 Profiling', link: '/systems/benchmark-profiling' },
+      { text: '分布式推理', link: '/systems/distributed-inference' },
+      { text: '生产级 Serving', link: '/systems/production-serving' }
     ]
   },
   {
@@ -32,7 +32,7 @@ export const sidebar: DefaultTheme.Sidebar = [
     items: [
       { text: '源码阅读地图', link: '/source-reading/' },
       {
-        text: 'Serving Engines',
+        text: 'Serving 引擎',
         collapsed: false,
         items: [
           { text: 'vLLM', link: '/source-reading/serving/vllm' },
@@ -44,7 +44,7 @@ export const sidebar: DefaultTheme.Sidebar = [
         ]
       },
       {
-        text: 'Kernel Libraries',
+        text: 'Kernel 库',
         collapsed: false,
         items: [
           { text: 'FlashInfer', link: '/source-reading/kernels/flashinfer' },
@@ -56,7 +56,7 @@ export const sidebar: DefaultTheme.Sidebar = [
         ]
       },
       {
-        text: 'Distributed / Cache',
+        text: '分布式 / 缓存',
         collapsed: true,
         items: [
           { text: 'Dynamo', link: '/source-reading/distributed/dynamo' },
@@ -67,7 +67,7 @@ export const sidebar: DefaultTheme.Sidebar = [
         ]
       },
       {
-        text: 'Agent Runtime',
+        text: 'Agent 运行时',
         collapsed: true,
         items: [
           { text: 'Codex', link: '/source-reading/agents/codex' },
@@ -88,12 +88,12 @@ export const sidebar: DefaultTheme.Sidebar = [
     items: [
       { text: '实验总览', link: '/labs/' },
       { text: 'PyTorch CUDA', link: '/labs/p0-torch-cuda' },
-      { text: 'Operator / Kernel', link: '/labs/p1-operator-kernel' },
-      { text: 'CUDA GPU Programming', link: '/labs/p2-cuda-gpu' },
-      { text: 'Toy Serving', link: '/labs/p5-toy-serving' },
+      { text: 'Operator / Kernel 实验', link: '/labs/p1-operator-kernel' },
+      { text: 'CUDA GPU 编程', link: '/labs/p2-cuda-gpu' },
+      { text: 'Toy Serving 实验', link: '/labs/p5-toy-serving' },
       { text: 'vLLM 实验', link: '/labs/p6-vllm' },
       { text: 'SGLang 实验', link: '/labs/p7-sglang' },
-      { text: 'First PR', link: '/labs/p9-first-pr' }
+      { text: '第一个 PR', link: '/labs/p9-first-pr' }
     ]
   },
   {
@@ -103,13 +103,13 @@ export const sidebar: DefaultTheme.Sidebar = [
       { text: '文章索引', link: '/articles/' },
       { text: '如何读 vendor 源码', link: '/articles/how-to-read-vendor-source' },
       { text: 'Serving 请求路径对比', link: '/articles/serving-request-path-comparison' },
-      { text: 'Attention Backend Map', link: '/articles/attention-backend-map' },
-      { text: 'DeepSeek Infra Stack', link: '/articles/deepseek-infra-stack-map' },
-      { text: 'Coding Agent Runtime', link: '/articles/coding-agent-runtime-map' },
+      { text: 'Attention Backend 地图', link: '/articles/attention-backend-map' },
+      { text: 'DeepSeek 基础设施全景', link: '/articles/deepseek-infra-stack-map' },
+      { text: 'Coding Agent 运行时', link: '/articles/coding-agent-runtime-map' },
       { text: '论文路线', link: '/articles/paper-syllabus' },
       { text: '术语表', link: '/reference/glossary' },
-      { text: 'Bibliography', link: '/reference/bibliography' },
-      { text: 'Troubleshooting', link: '/reference/troubleshooting' },
+      { text: '参考文献', link: '/reference/bibliography' },
+      { text: '问题排查', link: '/reference/troubleshooting' },
       { text: '开源贡献手册', link: '/reference/open-source-playbook' }
     ]
   }

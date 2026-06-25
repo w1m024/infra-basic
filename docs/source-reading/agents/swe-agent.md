@@ -1,18 +1,18 @@
-# SWE-agent / mini-swe-agent source reading
+# SWE-agent 源码阅读
 
 This page covers multiple same-layer vendor projects.
 
 ## SWE-agent
 
-## 1. Question this project answers
+## 1. 本项目要回答的问题
 
 - Layer: research-agent.
 - Route connection: Issue-to-patch loop, environment and trajectory design.
 - Reading goal: identify the entrypoint, core state, execution loop, resource boundary, and observable metrics.
 
-## 2. Version and source scope
+## 2. 版本与源码范围
 
-| Field | Value |
+| 字段 | 值 |
 |---|---|
 | upstream | https://github.com/SWE-agent/SWE-agent |
 | local path | `vendor/SWE-agent/SWE-agent` |
@@ -20,7 +20,7 @@ This page covers multiple same-layer vendor projects.
 | checkout date | 2026-06-13 |
 | article owner | OpenCQUT infra-basic |
 
-## 3. Main flow diagram
+## 3. 主流程图
 
 ```text
 user task
@@ -32,7 +32,7 @@ user task
 -> verification or trajectory
 ```
 
-## 4. Source map
+## 4. 源码地图
 
 | Source path | Module | Why read it | Key question |
 |---|---|---|---|
@@ -47,7 +47,7 @@ user task
 | `vendor/SWE-agent/SWE-agent/sweagent/agent/hooks/abstract.py` | resource/test | File exists in current checkout | Track call boundary, state mutation, and error handling |
 | `vendor/SWE-agent/SWE-agent/sweagent/agent/hooks/status.py` | resource/test | File exists in current checkout | Track call boundary, state mutation, and error handling |
 
-## 5. Main path notes
+## 5. 主路径笔记
 
 ### 5.1 Entrypoint
 
@@ -65,11 +65,11 @@ Trace one input through the loop. Serving projects use schedule/execute/stream. 
 
 Check streaming, metrics, trace, cache release, error propagation, or trajectory records. This is the part that makes the system debuggable and benchmarkable.
 
-## 6. Same-layer comparison
+## 6. 同层对比
 
 Same-layer comparison: Codex and Gemini CLI are terminal runtimes, Aider is git-aware editing, OpenHands is sandbox/controller oriented, and SWE-agent is benchmark trajectory oriented.
 
-## 7. Minimal experiment
+## 7. 最小实验
 
 ```bash
 git submodule update --init --depth 1 vendor/SWE-agent/SWE-agent
@@ -78,20 +78,20 @@ git -C vendor/SWE-agent/SWE-agent rev-parse --short HEAD
 
 Then choose the first three files in the source map and draw the arrows between entrypoint, state object, and main loop. GPU or service projects must also record hardware, driver, CUDA, model, and launch arguments.
 
-## 8. Common mistakes
+## 8. 常见错误
 
 - Reading only README files instead of real entrypoint files.
 - Recording benchmark numbers without commit, hardware, and launch arguments.
 - Skipping error handling, resource release, and metrics paths.
 - Citing source paths before checking that they exist in the current checkout.
 
-## 9. Review questions
+## 9. 回顾问题
 
 - Where does one request, tool call, or kernel launch enter this project?
 - Who creates, mutates, and releases the core state object?
 - What design boundary is most useful compared with same-layer projects?
 
-## 10. References
+## 10. 参考资料
 
 - Upstream repository: https://github.com/SWE-agent/SWE-agent
 - [Source reading map](/source-reading/)
@@ -102,15 +102,15 @@ Then choose the first three files in the source map and draw the arrows between 
 
 ## mini-swe-agent
 
-## 1. Question this project answers
+## 1. 本项目要回答的问题
 
 - Layer: research-agent.
 - Route connection: Minimal implementation used to compare the core loop.
 - Reading goal: identify the entrypoint, core state, execution loop, resource boundary, and observable metrics.
 
-## 2. Version and source scope
+## 2. 版本与源码范围
 
-| Field | Value |
+| 字段 | 值 |
 |---|---|
 | upstream | https://github.com/SWE-agent/mini-swe-agent |
 | local path | `vendor/SWE-agent/mini-swe-agent` |
@@ -118,7 +118,7 @@ Then choose the first three files in the source map and draw the arrows between 
 | checkout date | 2026-06-13 |
 | article owner | OpenCQUT infra-basic |
 
-## 3. Main flow diagram
+## 3. 主流程图
 
 ```text
 user task
@@ -130,7 +130,7 @@ user task
 -> verification or trajectory
 ```
 
-## 4. Source map
+## 4. 源码地图
 
 | Source path | Module | Why read it | Key question |
 |---|---|---|---|
@@ -145,7 +145,7 @@ user task
 | `vendor/SWE-agent/mini-swe-agent/.github/dependabot.yml` | resource/test | File exists in current checkout | Track call boundary, state mutation, and error handling |
 | `vendor/SWE-agent/mini-swe-agent/.github/mlc_config.json` | resource/test | File exists in current checkout | Track call boundary, state mutation, and error handling |
 
-## 5. Main path notes
+## 5. 主路径笔记
 
 ### 5.1 Entrypoint
 
@@ -163,11 +163,11 @@ Trace one input through the loop. Serving projects use schedule/execute/stream. 
 
 Check streaming, metrics, trace, cache release, error propagation, or trajectory records. This is the part that makes the system debuggable and benchmarkable.
 
-## 6. Same-layer comparison
+## 6. 同层对比
 
 Same-layer comparison: Codex and Gemini CLI are terminal runtimes, Aider is git-aware editing, OpenHands is sandbox/controller oriented, and SWE-agent is benchmark trajectory oriented.
 
-## 7. Minimal experiment
+## 7. 最小实验
 
 ```bash
 git submodule update --init --depth 1 vendor/SWE-agent/mini-swe-agent
@@ -176,20 +176,20 @@ git -C vendor/SWE-agent/mini-swe-agent rev-parse --short HEAD
 
 Then choose the first three files in the source map and draw the arrows between entrypoint, state object, and main loop. GPU or service projects must also record hardware, driver, CUDA, model, and launch arguments.
 
-## 8. Common mistakes
+## 8. 常见错误
 
 - Reading only README files instead of real entrypoint files.
 - Recording benchmark numbers without commit, hardware, and launch arguments.
 - Skipping error handling, resource release, and metrics paths.
 - Citing source paths before checking that they exist in the current checkout.
 
-## 9. Review questions
+## 9. 回顾问题
 
 - Where does one request, tool call, or kernel launch enter this project?
 - Who creates, mutates, and releases the core state object?
 - What design boundary is most useful compared with same-layer projects?
 
-## 10. References
+## 10. 参考资料
 
 - Upstream repository: https://github.com/SWE-agent/mini-swe-agent
 - [Source reading map](/source-reading/)

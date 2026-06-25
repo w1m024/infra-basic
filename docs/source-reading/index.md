@@ -1,17 +1,17 @@
-# Source reading map
+# 源码阅读地图
 
-Source reading is anchored to the current vendor submodule checkouts. Every project is registered in `vendor/MANIFEST.yaml`.
+源码阅读以当前 vendor 子模块检出为准。所有项目注册在 `vendor/MANIFEST.yaml` 中。
 
-## Reading order
+## 阅读顺序
 
-1. Serving engines: request entrypoint, scheduler, KV cache, worker, streaming.
-2. Kernel libraries: attention/GEMM/kernel backend input-output boundaries.
-3. Distributed/cache: communication, cache, deployment, observability.
-4. Agent runtime: terminal/IDE/cloud/research agent tool and verification loops.
+1. Serving 引擎：请求入口、调度器、KV cache、worker、streaming。
+2. Kernel 库：attention / GEMM / kernel 后端的输入输出边界。
+3. 分布式 / 缓存：通信、缓存、部署、可观测性。
+4. Agent 运行时：终端 / IDE / 云端 / 研究型 agent 的工具与验证循环。
 
-## Project index
+## 项目索引
 
-| Priority | Category | Project | Article | Local path |
+| 优先级 | 分类 | 项目 | 文章 | 本地路径 |
 |---|---|---|---|---|
 | P0 | serving-engine | vLLM | [article](/source-reading/serving/vllm) | `vendor/vllm-project/vllm` |
 | P0 | serving-engine | SGLang | [article](/source-reading/serving/sglang) | `vendor/sgl-project/sglang` |
@@ -48,7 +48,7 @@ Source reading is anchored to the current vendor submodule checkouts. Every proj
 | P0 | research-agent | SWE-agent | [article](/source-reading/agents/swe-agent) | `vendor/SWE-agent/SWE-agent` |
 | P0 | research-agent | mini-swe-agent | [article](/source-reading/agents/swe-agent) | `vendor/SWE-agent/mini-swe-agent` |
 
-## Check
+## 检查
 
 ```bash
 npm run check:vendor

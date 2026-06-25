@@ -1,4 +1,4 @@
-# KV Cache System
+# KV Cache 系统
 
 KV cache 是 LLM serving 的核心系统资源。它既减少重复计算，也成为显存、调度和 cache 复用的主要约束。
 

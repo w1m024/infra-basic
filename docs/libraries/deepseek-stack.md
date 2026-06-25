@@ -1,4 +1,4 @@
-# DeepSeek Infra Stack
+# DeepSeek 基础设施全景
 
 DeepSeek 相关开源项目值得单独成章，因为它们不是一个单一 serving framework，而是一组围绕 DeepSeek-V3 / R1 / V3.2 这类大规模 MoE 模型形成的底层基础设施：attention kernel、FP8 GEMM、expert-parallel communication、filesystem 和模型架构协同。
 

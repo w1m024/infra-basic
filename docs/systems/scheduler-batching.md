@@ -1,4 +1,4 @@
-# Scheduler & Batching
+# 调度与批处理
 
 LLM serving 系统的核心不是 HTTP，而是 scheduler。Scheduler 决定每一步哪些请求进入模型 forward，以及 prefill / decode 如何混合。
 

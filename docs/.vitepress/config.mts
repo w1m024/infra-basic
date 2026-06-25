@@ -2,9 +2,42 @@ import { defineConfig } from 'vitepress'
 import { meta } from './config/meta'
 import { nav } from './config/nav'
 import { sidebar } from './config/sidebar'
+import { nav as navEn } from './theme/data/nav-en'
+import { sidebarEn } from './theme/data/sidebar-en'
 
 export default defineConfig({
   ...meta,
+  locales: {
+    root: {
+      label: '简体中文',
+      lang: 'zh-CN'
+    },
+    en: {
+      label: 'English',
+      lang: 'en',
+      title: 'LLM Infra Basic',
+      description: 'CUDA-first LLM inference infrastructure learning path',
+      themeConfig: {
+        nav: navEn,
+        sidebar: sidebarEn,
+        outline: {
+          label: 'On this page'
+        },
+        lastUpdated: {
+          text: 'Last updated'
+        },
+        docFooter: {
+          prev: 'Previous',
+          next: 'Next'
+        },
+        returnToTopLabel: 'Return to top',
+        sidebarMenuLabel: 'Menu',
+        darkModeSwitchLabel: 'Appearance',
+        lightModeSwitchTitle: 'Switch to light mode',
+        darkModeSwitchTitle: 'Switch to dark mode'
+      }
+    }
+  },
   themeConfig: {
     logo: { text: 'LLM Infra' },
     nav,

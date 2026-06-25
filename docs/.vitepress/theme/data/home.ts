@@ -70,13 +70,13 @@ export const startSteps: StartStep[] = [
 
 export const sourceTracks: SourceTrack[] = [
   {
-    title: 'Serving Engines',
+    title: 'Serving 引擎',
     summary: '请求入口、调度、KV cache、worker、模型执行和 streaming。',
     projects: ['vLLM', 'SGLang', 'TGI', 'LMDeploy', 'TensorRT-LLM'],
     href: '/source-reading/serving/vllm'
   },
   {
-    title: 'Kernel Libraries',
+    title: 'Kernel 库',
     summary: 'attention、GEMM、Triton/CUDA/CUTLASS 抽象和 serving backend 的连接。',
     projects: ['FlashInfer', 'FlashAttention', 'CUTLASS', 'Triton', 'DeepGEMM'],
     href: '/source-reading/kernels/flashinfer'
@@ -88,7 +88,7 @@ export const sourceTracks: SourceTrack[] = [
     href: '/articles/deepseek-infra-stack-map'
   },
   {
-    title: 'Coding Agents',
+    title: 'Coding Agent',
     summary: 'agent loop、tool system、sandbox、edit/patch、验证和 trajectory。',
     projects: ['Codex', 'Gemini CLI', 'Aider', 'OpenHands', 'SWE-agent'],
     href: '/source-reading/agents/codex'

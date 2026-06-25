@@ -1,4 +1,4 @@
-# Open Source Library Landscape
+# 开源库全景
 
 本章整理 LLM 推理基础设施方向最值得学习的开源项目。选择标准不是“部署最省事”，而是项目是否能帮助理解 serving runtime、KV cache、scheduler、kernel、通信、分布式编排和硬件优化。
 
