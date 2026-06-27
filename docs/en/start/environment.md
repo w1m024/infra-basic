@@ -27,5 +27,4 @@ python -c "import torch; print(torch.cuda.is_available()); print(torch.version.c
 
 ## Next Steps
 
-- [Operator / Kernel Lab](/en/labs/p1-operator-kernel)
 - [Benchmark & Profiling](/en/systems/benchmark-profiling)

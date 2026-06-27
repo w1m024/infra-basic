@@ -1,6 +1,6 @@
 # 参考文献与资源索引
 
-本文档是 `docs/01-paper-syllabus.md` 的资源索引版。`01-paper-syllabus` 说明“为什么读、怎么读”，本文档列出“具体读哪些”。
+本文档是 [论文路线](/articles/paper-syllabus) 的资源索引版。论文路线说明“为什么读、怎么读”，本文档列出“具体读哪些”。
 
 本仓库采用 **CUDA-first / NVIDIA 标准环境**。资源优先级按下面顺序组织：
 

@@ -31,7 +31,7 @@ Linux
 → 再深入 CUDA C++ / CUTLASS / FlashAttention / FlashInfer
 ```
 
-对应 CUDA 专项见：`docs/09-cuda-gpu-programming.md`。
+对应 CUDA 专项见：[CUDA GPU 入门](/reference/cuda-gpu-guide)。
 
 ## 2. Python、Operator、Kernel 的关系
 
@@ -293,7 +293,7 @@ custom op 的核心不是“写 C++”，而是解决：
 | CUDA graph | 减少重复 launch overhead 的重要机制 |
 | profiler | 不 profile 就无法判断真正瓶颈 |
 
-CUDA 专项学习详见：`docs/09-cuda-gpu-programming.md`。
+CUDA 专项学习详见：[CUDA GPU 入门](/reference/cuda-gpu-guide)。
 
 ## 8. Tensor 基础：写算子前必须会
 

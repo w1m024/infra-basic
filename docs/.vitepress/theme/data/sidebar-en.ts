@@ -88,12 +88,22 @@ export const sidebarEn: DefaultTheme.Sidebar = [
     items: [
       { text: 'Lab Overview', link: '/en/labs/' },
       { text: 'PyTorch CUDA', link: '/en/labs/p0-torch-cuda' },
-      { text: 'Operator / Kernel', link: '/en/labs/p1-operator-kernel' },
-      { text: 'CUDA GPU Programming', link: '/en/labs/p2-cuda-gpu' },
       { text: 'Toy Serving', link: '/en/labs/p5-toy-serving' },
       { text: 'vLLM Lab', link: '/en/labs/p6-vllm' },
       { text: 'SGLang Lab', link: '/en/labs/p7-sglang' },
       { text: 'First PR', link: '/en/labs/p9-first-pr' }
+    ]
+  },
+  {
+    text: 'Reference',
+    collapsed: false,
+    items: [
+      { text: 'Operator / Kernel Guide', link: '/en/reference/operator-kernel-guide' },
+      { text: 'CUDA GPU Guide', link: '/en/reference/cuda-gpu-guide' },
+      { text: 'Glossary', link: '/en/reference/glossary' },
+      { text: 'Bibliography', link: '/en/reference/bibliography' },
+      { text: 'Troubleshooting', link: '/en/reference/troubleshooting' },
+      { text: 'Open Source Playbook', link: '/en/reference/open-source-playbook' }
     ]
   },
   {
@@ -106,11 +116,7 @@ export const sidebarEn: DefaultTheme.Sidebar = [
       { text: 'Attention Backend Map', link: '/en/articles/attention-backend-map' },
       { text: 'DeepSeek Infrastructure Stack', link: '/en/articles/deepseek-infra-stack-map' },
       { text: 'Coding Agent Runtime', link: '/en/articles/coding-agent-runtime-map' },
-      { text: 'Paper Syllabus', link: '/en/articles/paper-syllabus' },
-      { text: 'Glossary', link: '/en/reference/glossary' },
-      { text: 'Bibliography', link: '/en/reference/bibliography' },
-      { text: 'Troubleshooting', link: '/en/reference/troubleshooting' },
-      { text: 'Open Source Playbook', link: '/en/reference/open-source-playbook' }
+      { text: 'Paper Syllabus', link: '/en/articles/paper-syllabus' }
     ]
   }
 ]

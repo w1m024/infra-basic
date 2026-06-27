@@ -37,7 +37,9 @@ export const sidebar: DefaultTheme.Sidebar = [
         collapsed: false,
         items: [
           { text: 'vLLM', link: '/source-reading/serving/vllm' },
+          { text: 'vLLM 学习计划', link: '/source-reading/serving/vllm-study-plan' },
           { text: 'SGLang', link: '/source-reading/serving/sglang' },
+          { text: 'SGLang 学习计划', link: '/source-reading/serving/sglang-study-plan' },
           { text: 'TensorRT-LLM', link: '/source-reading/serving/tensorrt-llm' },
           { text: 'TGI', link: '/source-reading/serving/tgi' },
           { text: 'LMDeploy', link: '/source-reading/serving/lmdeploy' },
@@ -89,12 +91,24 @@ export const sidebar: DefaultTheme.Sidebar = [
     items: [
       { text: '实验总览', link: '/labs/' },
       { text: 'PyTorch CUDA', link: '/labs/p0-torch-cuda' },
-      { text: 'Operator / Kernel 实验', link: '/labs/p1-operator-kernel' },
-      { text: 'CUDA GPU 编程', link: '/labs/p2-cuda-gpu' },
-      { text: 'Toy Serving 实验', link: '/labs/p5-toy-serving' },
-      { text: 'vLLM 实验', link: '/labs/p6-vllm' },
-      { text: 'SGLang 实验', link: '/labs/p7-sglang' },
+      { text: 'Toy Serving', link: '/labs/p5-toy-serving' },
+      { text: 'vLLM', link: '/labs/p6-vllm' },
+      { text: 'SGLang', link: '/labs/p7-sglang' },
       { text: '第一个 PR', link: '/labs/p9-first-pr' }
+    ]
+  },
+  {
+    text: '参考指南',
+    collapsed: false,
+    items: [
+      { text: 'Operator / Kernel 入门', link: '/reference/operator-kernel-guide' },
+      { text: 'CUDA GPU 入门', link: '/reference/cuda-gpu-guide' },
+      { text: '术语表', link: '/reference/glossary' },
+      { text: '参考文献', link: '/reference/bibliography' },
+      { text: 'GPU 显存速查', link: '/reference/gpu-memory' },
+      { text: '模型精度与量化', link: '/reference/precision-quantization' },
+      { text: '问题排查', link: '/reference/troubleshooting' },
+      { text: '开源贡献手册', link: '/reference/open-source-playbook' }
     ]
   },
   {
@@ -107,13 +121,24 @@ export const sidebar: DefaultTheme.Sidebar = [
       { text: 'Attention Backend 地图', link: '/articles/attention-backend-map' },
       { text: 'DeepSeek 基础设施全景', link: '/articles/deepseek-infra-stack-map' },
       { text: 'Coding Agent 运行时', link: '/articles/coding-agent-runtime-map' },
-      { text: '论文路线', link: '/articles/paper-syllabus' },
-      { text: '术语表', link: '/reference/glossary' },
-      { text: '参考文献', link: '/reference/bibliography' },
-      { text: 'GPU 显存速查', link: '/reference/gpu-memory' },
-      { text: '模型精度与量化', link: '/reference/precision-quantization' },
-      { text: '问题排查', link: '/reference/troubleshooting' },
-      { text: '开源贡献手册', link: '/reference/open-source-playbook' }
+      { text: '论文路线', link: '/articles/paper-syllabus' }
+    ]
+  },
+  {
+    text: 'Agent 生态',
+    collapsed: false,
+    items: [
+      { text: '概览', link: '/agents/overview' },
+      { text: 'Agent 全景', link: '/agents/landscape' },
+      { text: 'OpenAI Codex', link: '/agents/openai-codex' },
+      { text: 'Claude Code', link: '/agents/claude-code' },
+      { text: 'Gemini CLI', link: '/agents/gemini-cli' },
+      { text: 'GitHub Copilot Agent', link: '/agents/github-copilot-agent' },
+      { text: 'Aider', link: '/agents/aider' },
+      { text: 'OpenHands', link: '/agents/openhands' },
+      { text: 'SWE-agent', link: '/agents/swe-agent' },
+      { text: 'Cline / Roo Code', link: '/agents/cline-roo' },
+      { text: 'OpenCode / Continue', link: '/agents/opencode-continue' }
     ]
   }
 ]

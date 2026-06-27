@@ -4,6 +4,10 @@
 
 跑通 SGLang 最小服务，并把实验结果连接到 [SGLang 源码阅读](/source-reading/serving/sglang)。
 
+## 学习计划
+
+详细学习计划见 [SGLang 学习计划](/source-reading/serving/sglang-study-plan)。
+
 ## 命令
 
 ```bash

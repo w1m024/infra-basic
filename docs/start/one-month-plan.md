@@ -145,8 +145,8 @@ reports/week1_profile_forward.md
 
 任务：
 
-- 阅读 `docs/07-operator-kernels.md`；
-- 阅读 `docs/09-cuda-gpu-programming.md`；
+- 阅读 [Operator / Kernel 入门](/reference/operator-kernel-guide)；
+- 阅读 [CUDA GPU 入门](/reference/cuda-gpu-guide)；
 - 写一页笔记解释 Python、operator、kernel、Triton、CUDA 的关系。
 
 交付物：

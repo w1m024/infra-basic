@@ -4,6 +4,10 @@
 
 跑通 vLLM 最小服务，并把实验结果连接到 [vLLM 源码阅读](/source-reading/serving/vllm)。
 
+## 学习计划
+
+详细学习计划见 [vLLM 学习计划](/source-reading/serving/vllm-study-plan)。
+
 ## 命令
 
 ```bash

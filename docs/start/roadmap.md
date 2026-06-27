@@ -84,7 +84,7 @@ PyTorch CUDA 推理基础
 
 目标：理解 Python、operator、kernel、Triton、CUDA、custom op 之间的关系。这个阶段不要求写高性能 CUDA，只要求先会看算子、profile 算子，并能写简单 Triton CUDA kernel。
 
-详见：`docs/07-operator-kernels.md`。
+详见：[Operator / Kernel 入门](/reference/operator-kernel-guide)。
 
 ### 必会概念
 
@@ -121,7 +121,7 @@ PyTorch CUDA 推理基础
 
 目标：认真理解 CUDA 思维，但不一开始深挖复杂 CUDA C++。这是理解 vLLM / SGLang attention backend、FlashAttention、FlashInfer、CUTLASS 和 kernel profiling 的基础。
 
-详见：`docs/09-cuda-gpu-programming.md`。
+详见：[CUDA GPU 入门](/reference/cuda-gpu-guide)。
 
 ### 必会概念
 
@@ -342,7 +342,7 @@ HTTP request
 
 不要一开始把论文当教科书从头硬读。建议先用工程实验建立直觉，再读论文回答具体问题。
 
-推荐阅读顺序见：`docs/01-paper-syllabus.md` 和 `docs/06-bibliography.md`。
+推荐阅读顺序见：[论文路线](/articles/paper-syllabus) 和 [参考文献](/reference/bibliography)。
 
 ## 阶段 9：开源贡献
 
@@ -360,7 +360,7 @@ HTTP request
 
 不要一开始挑战核心调度器或复杂 CUDA/Triton kernel。先通过小 PR 熟悉项目流程、CI、review 风格和代码结构。
 
-详见：`docs/05-open-source-playbook.md`。
+详见：[开源贡献手册](/reference/open-source-playbook)。
 
 ## 建议周期
 
