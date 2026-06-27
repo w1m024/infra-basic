@@ -22,6 +22,7 @@ export const sidebar: DefaultTheme.Sidebar = [
       { text: '调度与批处理', link: '/systems/scheduler-batching' },
       { text: 'Serving API 与 Streaming', link: '/systems/serving-api-streaming' },
       { text: 'Benchmark 与 Profiling', link: '/systems/benchmark-profiling' },
+      { text: 'Profiling 工具快速入门', link: '/systems/profiling-quickstart' },
       { text: '分布式推理', link: '/systems/distributed-inference' },
       { text: '生产级 Serving', link: '/systems/production-serving' }
     ]
@@ -109,6 +110,8 @@ export const sidebar: DefaultTheme.Sidebar = [
       { text: '论文路线', link: '/articles/paper-syllabus' },
       { text: '术语表', link: '/reference/glossary' },
       { text: '参考文献', link: '/reference/bibliography' },
+      { text: 'GPU 显存速查', link: '/reference/gpu-memory' },
+      { text: '模型精度与量化', link: '/reference/precision-quantization' },
       { text: '问题排查', link: '/reference/troubleshooting' },
       { text: '开源贡献手册', link: '/reference/open-source-playbook' }
     ]
