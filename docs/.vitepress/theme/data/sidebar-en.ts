@@ -36,7 +36,9 @@ export const sidebarEn: DefaultTheme.Sidebar = [
         collapsed: false,
         items: [
           { text: 'vLLM', link: '/en/source-reading/serving/vllm' },
+          { text: 'vLLM Study Plan', link: '/en/source-reading/serving/vllm-study-plan' },
           { text: 'SGLang', link: '/en/source-reading/serving/sglang' },
+          { text: 'SGLang Study Plan', link: '/en/source-reading/serving/sglang-study-plan' },
           { text: 'TensorRT-LLM', link: '/en/source-reading/serving/tensorrt-llm' },
           { text: 'TGI', link: '/en/source-reading/serving/tgi' },
           { text: 'LMDeploy', link: '/en/source-reading/serving/lmdeploy' },
@@ -87,11 +89,12 @@ export const sidebarEn: DefaultTheme.Sidebar = [
     collapsed: false,
     items: [
       { text: 'Lab Overview', link: '/en/labs/' },
-      { text: 'PyTorch CUDA', link: '/en/labs/p0-torch-cuda' },
-      { text: 'Toy Serving', link: '/en/labs/p5-toy-serving' },
-      { text: 'vLLM Lab', link: '/en/labs/p6-vllm' },
-      { text: 'SGLang Lab', link: '/en/labs/p7-sglang' },
-      { text: 'First PR', link: '/en/labs/p9-first-pr' }
+      { text: 'PyTorch CUDA', link: '/en/labs/torch-cuda' },
+      { text: 'Transformers Generation', link: '/en/labs/transformers-generation' },
+      { text: 'Toy Serving', link: '/en/labs/toy-serving' },
+      { text: 'vLLM', link: '/en/labs/vllm' },
+      { text: 'SGLang', link: '/en/labs/sglang' },
+      { text: 'First PR', link: '/en/labs/first-pr' }
     ]
   },
   {

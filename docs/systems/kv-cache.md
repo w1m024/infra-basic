@@ -2,6 +2,12 @@
 
 KV cache 是 LLM serving 的核心系统资源。它既减少重复计算，也成为显存、调度和 cache 复用的主要约束。
 
+> **贯穿概念**：KV cache 不是一个孤立知识点，而是在学习路线中反复出现的核心概念：
+> - 阶段 2：手写生成时理解 KV cache 为什么能避免重复计算
+> - 阶段 3：Toy Serving 时发现 KV cache 需要统一管理
+> - 阶段 6：vLLM 中 PagedAttention 如何分页管理 KV cache
+> - 阶段 7：SGLang 中 RadixAttention 如何复用 KV cache
+
 ## 基本作用
 
 自回归生成中，decode 每步只新增一个 token，但 attention 需要访问历史 token 的 key / value。KV cache 保存历史 token 的 K/V，避免每步重复计算整个 prompt。

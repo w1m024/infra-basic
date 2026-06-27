@@ -43,7 +43,7 @@ export const startSteps: StartStep[] = [
     title: 'Operator / Kernel',
     summary: '理解 Python 调用、operator dispatch、Triton/CUDA kernel 和性能瓶颈的边界。',
     output: '一个 operator 到 kernel 的路径图。',
-    href: '/labs/p1-operator-kernel'
+    href: '/reference/operator-kernel-guide'
   },
   {
     id: '03',
@@ -64,7 +64,7 @@ export const startSteps: StartStep[] = [
     title: '实验与 PR',
     summary: '用 benchmark、bug reproduction、文档或测试进入开源贡献闭环。',
     output: '一个可复现 issue、benchmark 或最小 PR。',
-    href: '/labs/p9-first-pr'
+    href: '/labs/first-pr'
   }
 ]
 

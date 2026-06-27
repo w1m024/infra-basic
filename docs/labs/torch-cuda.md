@@ -1,4 +1,4 @@
-# P0 PyTorch CUDA 实验
+# PyTorch CUDA 实验
 
 ## 目标
 

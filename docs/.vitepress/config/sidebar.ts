@@ -90,11 +90,12 @@ export const sidebar: DefaultTheme.Sidebar = [
     collapsed: false,
     items: [
       { text: '实验总览', link: '/labs/' },
-      { text: 'PyTorch CUDA', link: '/labs/p0-torch-cuda' },
-      { text: 'Toy Serving', link: '/labs/p5-toy-serving' },
-      { text: 'vLLM', link: '/labs/p6-vllm' },
-      { text: 'SGLang', link: '/labs/p7-sglang' },
-      { text: '第一个 PR', link: '/labs/p9-first-pr' }
+      { text: 'PyTorch CUDA', link: '/labs/torch-cuda' },
+      { text: 'Transformers 手写生成', link: '/labs/transformers-generation' },
+      { text: 'Toy Serving', link: '/labs/toy-serving' },
+      { text: 'vLLM', link: '/labs/vllm' },
+      { text: 'SGLang', link: '/labs/sglang' },
+      { text: '第一个 PR', link: '/labs/first-pr' }
     ]
   },
   {

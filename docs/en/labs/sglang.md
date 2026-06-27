@@ -1,8 +1,12 @@
-# P7 SGLang Lab
+# SGLang Lab
 
 ## Goal
 
-Run SGLang minimal service and connect lab results to SGLang source reading.
+Run SGLang minimal service and connect lab results to [SGLang source reading](/en/source-reading/serving/sglang).
+
+## Study Plan
+
+See [SGLang Study Plan](/en/source-reading/serving/sglang-study-plan) for detailed plan.
 
 ## Commands
 

@@ -1,4 +1,4 @@
-# P5 Toy Serving Lab
+# Toy Serving Lab
 
 ## Goal
 

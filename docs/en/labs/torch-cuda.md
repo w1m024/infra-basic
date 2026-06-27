@@ -1,4 +1,4 @@
-# P0 PyTorch CUDA Lab
+# PyTorch CUDA Lab
 
 ## Goal
 

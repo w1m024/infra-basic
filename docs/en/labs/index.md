@@ -9,10 +9,11 @@ Labs connect concepts, source code, and observable metrics. Each lab should reco
 
 ## Available Labs
 
-- **P0 PyTorch CUDA** - Run CUDA tensor and small model inference
-- **P5 Toy Serving** - Build minimal streaming server
-- **P6 vLLM** - Run vLLM minimal service
-- **P7 SGLang** - Run SGLang minimal service
-- **P9 First PR** - Prepare first open source contribution
+- **PyTorch CUDA** - Run CUDA tensor and small model inference
+- **Transformers Generation** - Naive/KV cache decoding, sampling, prefill/decode
+- **Toy Serving** - Build minimal streaming server
+- **vLLM** - Run vLLM minimal service
+- **SGLang** - Run SGLang minimal service
+- **First PR** - Prepare first open source contribution
 
 > Full English lab instructions are coming soon.

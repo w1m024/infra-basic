@@ -43,7 +43,7 @@ export const startSteps: StartStep[] = [
     title: 'Operator / Kernel',
     summary: 'Understand Python calls, operator dispatch, Triton/CUDA kernel, and performance bottleneck boundaries.',
     output: 'An operator-to-kernel path diagram.',
-    href: '/en/labs/p1-operator-kernel'
+    href: '/en/reference/operator-kernel-guide'
   },
   {
     id: '03',
@@ -64,7 +64,7 @@ export const startSteps: StartStep[] = [
     title: 'Lab & PR',
     summary: 'Enter open source contribution loop via benchmark, bug reproduction, docs, or tests.',
     output: 'A reproducible issue, benchmark, or minimal PR.',
-    href: '/en/labs/p9-first-pr'
+    href: '/en/labs/first-pr'
   }
 ]
 

@@ -1,8 +1,12 @@
-# P6 vLLM Lab
+# vLLM Lab
 
 ## Goal
 
-Run vLLM minimal service and connect lab results to vLLM source reading.
+Run vLLM minimal service and connect lab results to [vLLM source reading](/en/source-reading/serving/vllm).
+
+## Study Plan
+
+See [vLLM Study Plan](/en/source-reading/serving/vllm-study-plan) for detailed plan.
 
 ## Commands
 

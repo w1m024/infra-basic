@@ -285,7 +285,7 @@ conda install cuda-toolkit=12.4 -c nvidia
 
 环境配好后，接下来的学习内容：
 
-- tensor shape、dtype、device、contiguous 与显存占用 → [PyTorch CUDA 实验](/labs/p0-torch-cuda)
+- tensor shape、dtype、device、contiguous 与显存占用 → [PyTorch CUDA 实验](/labs/torch-cuda)
 - profiler 中 CPU 调用、operator、kernel 的关系 → [Operator / Kernel 入门](/reference/operator-kernel-guide)
 - batch size、sequence length、KV cache 对显存和延迟的影响 → [KV Cache 系统](/systems/kv-cache)
 
